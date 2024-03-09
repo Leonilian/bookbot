@@ -9,7 +9,7 @@ def count_words(filepath):
     words = content.split()
     for word in words:
         counter +=1
-    return counter
+    print(f"{counter} words found in document")
 
 def count_letters(filepath):
     content = get_contents(filepath)
@@ -23,9 +23,10 @@ def count_letters(filepath):
                 else:
                     lettercounts[letter] = 1
     sorted_letters = dict(sorted(lettercounts.items()))
-    return sorted_letters
+    for letter,number in sorted_letters.items():
+        print(f"The '{letter}' character was found {number} times")
                     
 
 
-print(count_words("books/frankenstein.txt"))
-print(count_letters("books/frankenstein.txt"))
+count_words("books/frankenstein.txt")
+count_letters("books/frankenstein.txt")
